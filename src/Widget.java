@@ -15,69 +15,72 @@ public class Widget extends JFrame {
 
     LaunchBrowser LB = new LaunchBrowser();
 
+    public Icon press(String press){
+        ImageIcon icon = new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource(press)));
+        return icon;
+    }
+
+    public Icon release(String release){
+        ImageIcon icon = new ImageIcon((Toolkit.getDefaultToolkit().createImage(getClass().getResource(release))));
+        return icon;
+    }
+
     public Widget(){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(BackGround);
         this.setSize(379, 71);
         this.setUndecorated(true);
+        this.setLocation(770, 0);
+        this.setIconImage(
+                Toolkit.getDefaultToolkit().getImage(Widget.class.getResource("Icons/IconApp.png")));
+        this.setVisible(true);
 
         VKBTN.addMouseListener(new MouseAdapter() {
-            @Override
             public void mousePressed(MouseEvent e) {
-                VKBTN.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource("Icons/IconVKPressed.png"))));
+                VKBTN.setIcon(press("Icons/IconVKPressed.png"));
             }
-            @Override
             public void mouseReleased(MouseEvent e) {
-                VKBTN.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource("Icons/IconVK.png"))));
+                VKBTN.setIcon(release("Icons/IconVK.png"));
                 LB.launchVK();
             }
         });
         InstaBTN.addMouseListener(new MouseAdapter() {
-            @Override
             public void mousePressed(MouseEvent e) {
-                InstaBTN.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource("Icons/IconInstaPressed.png"))));
+                InstaBTN.setIcon(press("Icons/IconInstaPressed.png"));
             }
-            @Override
             public void mouseReleased(MouseEvent e) {
-                InstaBTN.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource("Icons/IconInsta.png"))));
+                InstaBTN.setIcon(release("Icons/IconInsta.png"));
                 LB.launchInstagram();
             }
         });
         YouTubeBTN.addMouseListener(new MouseAdapter() {
-            @Override
             public void mousePressed(MouseEvent e) {
-                YouTubeBTN.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource("Icons/IconYouTubePressed.png"))));
+                YouTubeBTN.setIcon(press("Icons/IconYouTubePressed.png"));
             }
-            @Override
             public void mouseReleased(MouseEvent e) {
-                YouTubeBTN.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource("Icons/IconYouTube.png"))));
+                YouTubeBTN.setIcon(release("Icons/IconYouTube.png"));
                 LB.launchYoutube();
             }
         });
         MailBTN.addMouseListener(new MouseAdapter() {
-            @Override
             public void mousePressed(MouseEvent e) {
-                MailBTN.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource("Icons/IconMailPressed.png"))));
+                MailBTN.setIcon(press("Icons/IconMailPressed.png"));
             }
-            @Override
             public void mouseReleased(MouseEvent e) {
-                MailBTN.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource("Icons/IconMail.png"))));
+                MailBTN.setIcon(release("Icons/IconMail.png"));
                 LB.launchMail();
             }
         });
         CloseBTN.addMouseListener(new MouseAdapter() {
-            @Override
             public void mousePressed(MouseEvent e) {
-                CloseBTN.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource("Icons/IconClosePressed.png"))));
+                CloseBTN.setIcon(press("Icons/IconClosePressed.png"));
             }
-            @Override
             public void mouseReleased(MouseEvent e) {
-                CloseBTN.setIcon(new ImageIcon(Toolkit.getDefaultToolkit().createImage(getClass().getResource("Icons/IconClose.png"))));
+                CloseBTN.setIcon(release("Icons/IconClose.png"));
                 System.exit(0);
             }
         });
         BackGround.addMouseListener(new MouseAdapter() {
-            @Override
             public void mousePressed(MouseEvent e){
                 draggedAtX = e.getX();
                 draggedAtY = e.getY();
@@ -92,9 +95,5 @@ public class Widget extends JFrame {
 
     public static void main (String [] args){
         JFrame frame = new Widget();
-        frame.setLocation(770, 0);
-        frame.setIconImage(
-                Toolkit.getDefaultToolkit().getImage(Widget.class.getResource("Icons/IconApp.png")));
-        frame.setVisible(true);
     }
 }
